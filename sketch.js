@@ -183,8 +183,6 @@ function mouseDragged() {
     if (node) {
         node.x = round(mouseX / grid) * grid;
         node.y = round(mouseY / grid) * grid;
-    } else {
-        new Node(mouseX, mouseY);
     }
 }
 
