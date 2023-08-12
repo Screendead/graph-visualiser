@@ -172,7 +172,9 @@ function mousePressed() {
             delete Node.nodesById[node.id];
         }
     } else {
-        new Node(mouseX, mouseY);
+        if (mouseButton === LEFT) {
+            new Node(mouseX, mouseY);
+        }
     }
 }
 
