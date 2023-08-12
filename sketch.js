@@ -78,9 +78,9 @@ class Edge {
             || dist(mouseX, mouseY, this.node2.x, this.node2.y) < this.node2.r
         ) {
             stroke(255, 255, 255, 255);
-            strokeWeight(4);
+            strokeWeight(2);
         } else {
-            stroke(255, 255, 255, 50);
+            stroke(255, 255, 255, 128);
             strokeWeight(2);
         }
 
@@ -106,7 +106,6 @@ function preload() {
 function setup() {
     createCanvas(innerWidth, innerHeight);
     select('canvas').elt.style.touchAction = 'none'; // Disable panning on mobile
-    select('canvas').elt.addEventListener('touchmove', e => e.preventDefault()); // Disable scrolling on mobile
     select('canvas').elt.addEventListener('contextmenu', e => e.preventDefault()); // Disable right click menu
 }
 
@@ -200,6 +199,18 @@ function mouseWheel(event) {
     if (node) {
         node.r += event.delta;
     }
+}
+
+function touchStarted() {
+    mousePressed();
+}
+
+function touchMoved() {
+    mouseDragged();
+}
+
+function touchEnded() {
+    mouseReleased();
 }
 
 function windowResized() {
